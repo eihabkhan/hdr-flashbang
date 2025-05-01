@@ -1,9 +1,9 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "hdr-infuser",
-  "title": "HDR Infuser",
+  "name": "hdr-flashbang",
+  "title": "HDR Flashbang",
   "description": "Infuse images with HDR",
-  "icon": "extension-icon.png",
+  "icon": "command-icon.png",
   "author": "eihab",
   "owner": "itseihab",
   "categories": [
@@ -13,9 +13,9 @@
   "commands": [
     {
       "name": "infuse",
-      "title": "infuse",
-      "description": "",
-      "mode": "view"
+      "title": "Infuse images with HDR",
+      "description": "Infuse the selected image(s) with HDR color profile",
+      "mode": "no-view"
     }
   ],
   "dependencies": {
