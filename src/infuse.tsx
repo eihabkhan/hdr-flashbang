@@ -1,6 +1,6 @@
-import { getSelectedFinderItems, showToast, Toast, environment } from "@raycast/api";
-import { resolve, dirname, basename, extname, join } from "path";
-import { spawnSync } from "child_process";
+import { getSelectedFinderItems, showToast, Toast } from "@raycast/api";
+import { extname } from "path";
+import infuse from "./operations/infuse.operation";
 
 const supportedFormats = ["JPEG", "JPG", "PNG", "GIF"];
 
@@ -36,22 +36,7 @@ export default async function command() {
         return;
       }
 
-      const fileDir = dirname(inputPath);
-      const fileName = basename(inputPath, extname(inputPath));
-      const outputPath = join(fileDir, `${fileName}_hdr${extname(inputPath)}`);
-
-      const result = spawnSync("sips", [
-        "--setProperty",
-        "profile",
-        resolve(environment.assetsPath, "2020_profile.icc"),
-        "--out",
-        outputPath,
-        inputPath,
-      ]);
-
-      if (result.error || result.status !== 0) {
-        throw new Error(`Infusing image failed: ${result.stderr.toString()}`);
-      }
+      await infuse(inputPath);
 
       await showToast({
         style: Toast.Style.Success,
@@ -60,6 +45,7 @@ export default async function command() {
     }
   } catch (error: unknown) {
     console.error(error);
+
     await showToast({
       style: Toast.Style.Failure,
       title: "Processing Failed",
