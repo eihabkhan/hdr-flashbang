@@ -6,7 +6,14 @@
   "icon": "command-icon.png",
   "author": "eihab",
   "owner": "itseihab",
+  "keywords": [
+    "emotes",
+    "hdr",
+    "sips",
+    "infuse"
+  ],
   "categories": [
+    "Media",
     "Design Tools"
   ],
   "license": "MIT",
@@ -15,7 +22,11 @@
       "name": "infuse",
       "title": "Infuse images with HDR",
       "description": "Infuse the selected image(s) with HDR color profile",
-      "mode": "no-view"
+      "mode": "no-view",
+      "keywords": [
+        "infuse",
+        "hdr"
+      ]
     }
   ],
   "dependencies": {
